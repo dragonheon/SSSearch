@@ -39,32 +39,33 @@
         </Border>
 
         <!-- 설명 텍스트 -->
-        <TextBlock Text="전체화면, 원하는 영역의 이미지를 바로 검색하여 결과를 보여줍니다.&#x0a;프로그램은 백그라운드에서 계속 실행됩니다.(시작 프로그램 등록 추천)&#x0a;" 
+        <TextBlock Text="전체화면, 원하는 영역의 이미지를 바로 검색하여 결과를 보여줍니다.&#x0a;프로그램은 백그라운드에서 계속 실행됩니다.&#x0a;(시작 프로그램 등록 추천)&#x0a;" 
                    Foreground="LightGray" FontSize="12" HorizontalAlignment="Center" 
                    Margin="10,110,10,0" TextAlignment="Center"/>
 
         <!-- 스크린샷 옵션 -->
-        <Grid Margin="20,150,20,0" HorizontalAlignment="Center">
+        <Grid Margin="20,160,20,0" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="23"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- 전체화면 스크린샷 옵션 -->
-            <TextBlock Text="전체화면 스크린샷" FontSize="12" Foreground="LightGray" Grid.Row="0" HorizontalAlignment="Center"/>
+            <!-- 전체화면 검색 옵션 -->
+            <TextBlock Text="전체화면 검색" FontSize="12" Foreground="LightGray" Grid.Row="0" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2"/>
             <TextBlock Text="Cntrl + F" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="58"/>
+            <!-- 영역지정 검색 옵션 -->
+            <TextBlock Text="영역지정 검색" FontSize="12" Foreground="LightGray" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,0,19" Grid.RowSpan="2"/>
+            <TextBlock Text="Cntrl + Shift + F" Grid.Row ="1" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="98" Margin="3,0,0,0"/>
+            <!-- 프로그램 종료 옵션 -->
+            <TextBlock Text="프로그램 종료" FontSize="12" Foreground="LightGray" Grid.Row="2" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2"/>
+            <TextBlock Text="Cntrl + D(연속)" Grid.Row="2" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="90"/>
 
-            <!-- 영역 지정 옵션 -->
-            <TextBlock Text="프로그램 종료" FontSize="12" Foreground="LightGray" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,0,23" Grid.RowSpan="2"/>
-            <TextBlock Text="Cntrl + Shift + F" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,20" Grid.RowSpan="2" Width="102"/>
-
-            <!-- 체크박스: 영역지정 고정 -->
-            <CheckBox Content="영역지정 고정" FontSize="12" Foreground="LightGray" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,16,0,-11"/>
         </Grid>
 
         <!-- 결과 갤러리 -->
