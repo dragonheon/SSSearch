@@ -27,6 +27,7 @@ namespace SmartSearchScreen
         public static string search_image = "";
 
         ImageSearch ImageSearch { get; set; } = new ImageSearch();
+        Translation translation { get; set; } = new Translation();
         private FullScnSrch_TopMost fullscnsrch;
         private ImageLoader imageLoader;
 
@@ -105,6 +106,10 @@ namespace SmartSearchScreen
             SearchImage();
         }
 
+        private void BtnTranslate(object sender, RoutedEventArgs e)
+        {
+            TranslateImage();
+        }
         // 이전 페이지, 다음 페이지 버튼 클릭 이벤트 핸들러
         private void PreviousPage_Click(object sender, RoutedEventArgs e)
         {
@@ -150,7 +155,35 @@ namespace SmartSearchScreen
 
             SearchResults.Text = resultText;
         }
+        // 번역 메서드
+        public async void TranslateImage()
+        {
+            try
+            {
+                // 마지막으로 선택된 이미지 경로 가져오기
+                search_image = imageLoader.GetLastImage();
 
+                // UI 업데이트 - 번역 진행 중 상태를 표시
+                myTabControl.SelectedIndex = 1; // 번역 화면으로 전환
+                page.Visibility = Visibility.Hidden;
+                SearchedImage.Source = new BitmapImage(new Uri(search_image)); // 이미지 표시
+                SearchResults.Text = "Translating image text...";
+
+                // 번역 대상 언어 설정 (예: 영어로 번역)
+                string targetLanguage = "ko";
+
+                // Translation 클래스의 텍스트 추출 및 번역 메서드 호출
+                string translatedText = await translation.ExtractTextAndTranslateAsync(search_image, targetLanguage);
+
+                // 번역 결과를 UI에 업데이트
+                SearchResults.Text = translatedText;
+            }
+            catch (Exception ex)
+            {
+                // 예외 처리 - 오류 메시지 표시
+                MessageBox.Show($"Error: {ex.Message}", "Translation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         // 문서 디렉토리에 Images 폴더가 없으면 생성하는 메서드
         private void CreateImagesFolder()
         {
