@@ -8,5 +8,6 @@ namespace SmartSearchScreen
 {
     internal class Translation
     {
+        //test
     }
 }
