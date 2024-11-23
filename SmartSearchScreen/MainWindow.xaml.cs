@@ -37,7 +37,10 @@ namespace SmartSearchScreen
 
         public MainWindow()
         {
-            InitializeComponent();  // XAML 파일을 초기화하는 함수
+
+
+            // XAML 파일을 초기화하는 함수
+            InitializeComponent();
             CreateImagesFolder();   // Images 폴더를 생성하는 메서드 호출
 
             // ImageLoader 인스턴스 생성

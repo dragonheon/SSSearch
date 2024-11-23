@@ -64,7 +64,7 @@
             <TextBlock Text="Cntrl + Shift + F" Grid.Row ="1" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="98" Margin="21,0,0,0"/>
             <!-- 프로그램 종료 옵션 -->
             <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="2" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2" Text="영역지정 검색"/>
-            <TextBlock Grid.Row="2" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center"HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0"><Run Text="Cntrl + D"/><Run Text=" "/><Run Text="("/><Run Text="더블"/><Run Language="ko-kr" Text="클"/><Run Text="릭)"/></TextBlock>
+            <TextBlock Grid.Row="2" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0"><Run Text="Cntrl + D"/><Run Text=" "/><Run Text="("/><Run Text="더블"/><Run Language="ko-kr" Text="클"/><Run Text="릭)"/></TextBlock>
 
         </Grid>
 
