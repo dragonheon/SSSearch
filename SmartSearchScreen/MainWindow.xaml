@@ -58,13 +58,13 @@
 
             <!-- 전체화면 검색 옵션 -->
             <TextBlock Text="전체화면 검색" FontSize="12" Foreground="LightGray" Grid.Row="0" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2"/>
-            <TextBlock Text="Cntrl + F" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="58"/>
+            <TextBlock Text="Cntrl + F" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="58" Margin="41,0,0,0"/>
             <!-- 영역지정 검색 옵션 -->
-            <TextBlock Text="영역지정 검색" FontSize="12" Foreground="LightGray" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,0,19" Grid.RowSpan="2"/>
-            <TextBlock Text="Cntrl + Shift + F" Grid.Row ="1" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="98" Margin="3,0,0,0"/>
+            <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,0,19" Grid.RowSpan="2"><Run Language="ko-kr" Text="프로그램 종료"/></TextBlock>
+            <TextBlock Text="Cntrl + Shift + F" Grid.Row ="1" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="98" Margin="21,0,0,0"/>
             <!-- 프로그램 종료 옵션 -->
-            <TextBlock Text="프로그램 종료" FontSize="12" Foreground="LightGray" Grid.Row="2" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2"/>
-            <TextBlock Text="Cntrl + D(연속)" Grid.Row="2" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="90"/>
+            <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="2" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2" Text="영역지정 검색"/>
+            <TextBlock Grid.Row="2" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center"HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0"><Run Text="Cntrl + D"/><Run Text=" "/><Run Text="("/><Run Text="더블"/><Run Language="ko-kr" Text="클"/><Run Text="릭)"/></TextBlock>
 
         </Grid>
 

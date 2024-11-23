@@ -3,51 +3,51 @@
   "WorkspaceRootPath": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\opening.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:opening.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\imagesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:imagesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\fullscnsrch_topmost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:fullscnsrch_topmost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\captureoverlaywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\captureoverlaywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:captureoverlaywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\capturesrch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\capturesrch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:capturesrch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\fullscnsrch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\fullscnsrch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:fullscnsrch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:imageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\imagesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\imagesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:imagesave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\imagesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:imagesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\opening.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\opening.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:opening.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\opening.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:opening.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|c:\\users\\yongh\\documents\\github\\sssbu\\smartsearchscreen\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{95A849DB-449F-4120-A272-8CFA1D9DF69E}|SmartSearchScreen.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +66,15 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -78,50 +86,40 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CaptureSrch.cs",
-              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureSrch.cs",
-              "RelativeDocumentMoniker": "CaptureSrch.cs",
-              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureSrch.cs",
-              "RelativeToolTip": "CaptureSrch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T08:03:26.093Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CaptureOverlayWindow.cs",
-              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureOverlayWindow.cs",
-              "RelativeDocumentMoniker": "CaptureOverlayWindow.cs",
-              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureOverlayWindow.cs",
-              "RelativeToolTip": "CaptureOverlayWindow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T08:03:05.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA0wA8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T07:56:05.78Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "FullScnSrch_TopMost.cs",
               "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\FullScnSrch_TopMost.cs",
               "RelativeDocumentMoniker": "FullScnSrch_TopMost.cs",
@@ -134,71 +132,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FullScnSrch.cs",
-              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\FullScnSrch.cs",
-              "RelativeDocumentMoniker": "FullScnSrch.cs",
-              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\FullScnSrch.cs",
-              "RelativeToolTip": "FullScnSrch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T08:03:44.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ImageLoader.cs",
-              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageLoader.cs",
-              "RelativeDocumentMoniker": "ImageLoader.cs",
-              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageLoader.cs",
-              "RelativeToolTip": "ImageLoader.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T08:04:44.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ImageSave.cs",
-              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageSave.cs",
-              "RelativeDocumentMoniker": "ImageSave.cs",
-              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageSave.cs",
-              "RelativeToolTip": "ImageSave.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T08:05:02.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "ImageSearch.cs",
               "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageSearch.cs",
               "RelativeDocumentMoniker": "ImageSearch.cs",
               "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageSearch.cs",
               "RelativeToolTip": "ImageSearch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAowAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T07:59:38.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Opening.xaml",
-              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\Opening.xaml",
-              "RelativeDocumentMoniker": "Opening.xaml",
-              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\Opening.xaml",
-              "RelativeToolTip": "Opening.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-23T08:00:31.308Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "Opening.xaml.cs",
               "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\Opening.xaml.cs",
               "RelativeDocumentMoniker": "Opening.xaml.cs",
@@ -211,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -220,6 +167,77 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-11-23T07:56:06.277Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ImageLoader.cs",
+              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageLoader.cs",
+              "RelativeDocumentMoniker": "ImageLoader.cs",
+              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageLoader.cs",
+              "RelativeToolTip": "ImageLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:04:44.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FullScnSrch.cs",
+              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\FullScnSrch.cs",
+              "RelativeDocumentMoniker": "FullScnSrch.cs",
+              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\FullScnSrch.cs",
+              "RelativeToolTip": "FullScnSrch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:03:44.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CaptureOverlayWindow.cs",
+              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureOverlayWindow.cs",
+              "RelativeDocumentMoniker": "CaptureOverlayWindow.cs",
+              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureOverlayWindow.cs",
+              "RelativeToolTip": "CaptureOverlayWindow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:03:05.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CaptureSrch.cs",
+              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureSrch.cs",
+              "RelativeDocumentMoniker": "CaptureSrch.cs",
+              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\CaptureSrch.cs",
+              "RelativeToolTip": "CaptureSrch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:03:26.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ImageSave.cs",
+              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageSave.cs",
+              "RelativeDocumentMoniker": "ImageSave.cs",
+              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\ImageSave.cs",
+              "RelativeToolTip": "ImageSave.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T08:05:02.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Opening.xaml",
+              "DocumentMoniker": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\Opening.xaml",
+              "RelativeDocumentMoniker": "Opening.xaml",
+              "ToolTip": "C:\\Users\\yongh\\Documents\\GitHub\\SSSbu\\SmartSearchScreen\\Opening.xaml",
+              "RelativeToolTip": "Opening.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-23T08:00:31.308Z"
             },
             {
               "$type": "Document",
