@@ -9,6 +9,8 @@ namespace SmartSearchScreen
 {
     public class CaptureSrch : IDisposable
     {
+        private const int HOTKEY_ID_TRANSLATE = 9003;
+        private const int MOD_CONTROL_SHIFT = MOD_CONTROL | 0x0004; // Ctrl + Shift
         private const int HOTKEY_ID_CAPTURE = 9002;
         private const int MOD_CONTROL = 0x0002;
         private const int VK_D = 0x44;
@@ -48,35 +50,52 @@ namespace SmartSearchScreen
 
         private void RegisterHotKey()
         {
+
             if (!RegisterHotKey(_windowHandle, HOTKEY_ID_CAPTURE, MOD_CONTROL, VK_D))
             {
                 MessageBox.Show("Failed to register hotkey for Capture", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+            if (!RegisterHotKey(_windowHandle, HOTKEY_ID_TRANSLATE, MOD_CONTROL_SHIFT, VK_D))
+            {
+                MessageBox.Show("Failed to register hotkey for Translate", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void UnregisterHotKey()
         {
             UnregisterHotKey(_windowHandle, HOTKEY_ID_CAPTURE);
+            UnregisterHotKey(_windowHandle, HOTKEY_ID_TRANSLATE);
         }
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             const int WM_HOTKEY = 0x0312;
-            if (msg == WM_HOTKEY && wParam.ToInt32() == HOTKEY_ID_CAPTURE)
+            if (msg == WM_HOTKEY)
             {
-                _keyPressCount++;
-                if (_keyPressCount == 1)
+                int hotkeyId = wParam.ToInt32();
+                if (hotkeyId == HOTKEY_ID_CAPTURE)
                 {
-                    _keyPressTimer.Start();
+                    _keyPressCount++;
+                    if (_keyPressCount == 1)
+                    {
+                        _keyPressTimer.Start();
+                    }
+                    else if (_keyPressCount >= RequiredKeyPressCount)
+                    {
+                        _mainWindow.Capture();
+                        _keyPressCount = 0;
+                        _keyPressTimer.Stop();
+                    }
+                    handled = true;
                 }
-                else if (_keyPressCount >= RequiredKeyPressCount)
+                else if (hotkeyId == HOTKEY_ID_TRANSLATE)
                 {
-                    _mainWindow.Capture();
-                    _keyPressCount = 0;
-                    _keyPressTimer.Stop();
+                    _mainWindow.BtnTranslate(null, null);
+                    handled = true;
                 }
-                handled = true;
             }
+
             return IntPtr.Zero;
         }
 

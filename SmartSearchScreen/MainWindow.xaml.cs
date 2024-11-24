@@ -121,8 +121,9 @@ namespace SmartSearchScreen
             }
         }
 
-        private void BtnTranslate(object sender, RoutedEventArgs e)
+        public void BtnTranslate(object sender, RoutedEventArgs e)
         {
+            SearchImage();
             TranslateImage();
         }
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
