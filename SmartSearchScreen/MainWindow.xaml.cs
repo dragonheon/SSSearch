@@ -21,7 +21,7 @@ namespace SmartSearchScreen
         private int totalPages;
 
         // 사용자의 문서 폴더 내에 이미지 저장 경로
-        public readonly string imagesFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Images");
+        public readonly string imagesFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), $"Images");//Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Images");
 
 
         public static string search_image = "";
