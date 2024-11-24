@@ -26,50 +26,66 @@ namespace SmartSearchScreen
         {
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", translationApiKeyFilePath);
         }
+
+        public Translation() 
+        {
+            SetTranslationApiKey();
+            SetVisionApiCredentials();
+        }
          //텍스트 추출과 번역을 분리한 메서드
          public async Task<string> ExtractTextFromImageAsync(string imagePath)
         {
-            SetVisionApiCredentials(); // Cloud Vision 인증 설정
-
-            var visionClient = ImageAnnotatorClient.Create();
-            var image = Image.FromFile(imagePath); 
-            var response = await visionClient.DetectTextAsync(image);
-
-            string extractedText = string.Empty;
-            foreach (var annotation in response)
+            try
             {
-                extractedText += annotation.Description + "\n";
-            }
+                var visionClient = ImageAnnotatorClient.Create();
+                var image = Image.FromFile(imagePath);
+                var response = await visionClient.DetectTextAsync(image);
+                int blockcount = response.Count();
+                int i = 1;
+                string extractedText = string.Empty;
+                foreach (var annotation in response)
+                {
+                    if (i > ((blockcount) / 2 )- 1)
+                    extractedText += annotation.Description + " ";
+                    i++;
+                }
 
-            return extractedText;
+                return extractedText;
+            }
+            catch (Exception ex)
+            {
+                return $"Error extracting text: {ex.Message}";
+            }
         }
 
         // 번역을 수행하는 메서드
         public async Task<string> TranslateTextAsync(string text, string targetLanguage)
         {
-            SetVisionApiCredentials(); // Cloud Translation 인증 설정
-
             var translationClient = TranslationClient.Create();
-            var translatedText = await translationClient.TranslateTextAsync(text, targetLanguage);
+            var translatedText1 = await translationClient.TranslateTextAsync(text, targetLanguage);
 
-            return translatedText.TranslatedText;
+            return translatedText1.TranslatedText;
         }
 
         // 이미지에서 텍스트를 추출하고 번역하는 메서드
         public async Task<string> ExtractTextAndTranslateAsync(string imagePath, string targetLanguage)
         {
-            // 텍스트 추출
-            string extractedText = await ExtractTextFromImageAsync(imagePath);
-
-            // 텍스트가 추출되지 않으면 종료
-            if (string.IsNullOrWhiteSpace(extractedText))
+            try
             {
-                return "No text detected in the image.";
-            }
+                string extractedText = await ExtractTextFromImageAsync(imagePath);
 
-            // 텍스트 번역
-            string translatedText = await TranslateTextAsync(extractedText, targetLanguage);
-            return translatedText;
+                if (string.IsNullOrWhiteSpace(extractedText))
+                {
+                    return "No text detected in the image.";
+                }
+
+                string translatedText = await TranslateTextAsync(extractedText, targetLanguage);
+                return translatedText;
+            }
+            catch (Exception ex)
+            {
+                return $"Error processing image: {ex.Message}";
+            }
         }
     }
 }

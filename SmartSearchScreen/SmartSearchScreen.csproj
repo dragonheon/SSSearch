@@ -55,10 +55,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>67934FC6524C8BEB60F0BCFFEFD8907CD382CE4D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>39FA3CFC9DD775E9381CC4AC9B5E67AC2F39B33C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>SmartSearchScreen_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -88,8 +89,14 @@
     <Reference Include="Google.Apis.Core, Version=1.67.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>packages\Google.Apis.Core.1.67.0\lib\net462\Google.Apis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis.Storage.v1, Version=1.67.0.3365, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Storage.v1.1.67.0.3365\lib\net462\Google.Apis.Storage.v1.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis.Translate.v2, Version=1.67.0.875, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>packages\Google.Apis.Translate.v2.1.67.0.875\lib\net462\Google.Apis.Translate.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Cloud.Storage.V1, Version=4.10.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Cloud.Storage.V1.4.10.0\lib\net462\Google.Cloud.Storage.V1.dll</HintPath>
     </Reference>
     <Reference Include="Google.Cloud.Translation.V2, Version=3.4.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
       <HintPath>packages\Google.Cloud.Translation.V2.3.4.0\lib\net462\Google.Cloud.Translation.V2.dll</HintPath>
@@ -185,6 +192,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ImageHelper.cs" />
     <Compile Include="onFixUI.cs" />
     <Compile Include="Translation.cs" />
     <Page Include="MainWindow.xaml">

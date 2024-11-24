@@ -31,7 +31,8 @@ namespace SmartSearchScreen
         public readonly string imagesFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), $"Images");
 
         public static string search_image = "";
-
+        // 일단 무시 static string bucketName = "sssearch";
+        // 일단 무시 GoogleCloudStorageUploader uploader = new GoogleCloudStorageUploader(bucketName);
         ImageSearch ImageSearch { get; set; } = new ImageSearch();
         Translation translation { get; set; } = new Translation();
         private FullScnSrch_TopMost fullscnsrch;
@@ -192,7 +193,17 @@ namespace SmartSearchScreen
 
             string resultText = await ImageSearch.AnalyzeImageAsync(search_image);
             SearchResults.Text = resultText;
+            /*
+             * string publicUrl = uploader.UploadImage(search_image);
+            // Google 이미지 검색 URL 생성
+            string googleImageUrl = "https://images.google.com/searchbyimage?image_url=";
+            string searchUrl = $"{googleImageUrl}{Uri.EscapeDataString(publicUrl)}";
+
+            // Google 이미지 검색 URL을 웹 브라우저에서 열기
+            Process.Start(new ProcessStartInfo("cmd", $"/c start {searchUrl}") { CreateNoWindow = true });
+*/
         }
+
         // 번역 메서드
         public async void TranslateImage()
         {
@@ -219,7 +230,7 @@ namespace SmartSearchScreen
                     SearchedImage.Source = bitmap;
                 }
 
-                SearchResults.Text = "Translating image text...";
+                SearchResults.Text = "번역 진행 중";
 
                 // 번역 대상 언어 설정 (예: 영어로 번역)
                 string targetLanguage = "ko";
