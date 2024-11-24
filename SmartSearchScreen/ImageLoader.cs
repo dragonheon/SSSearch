@@ -34,7 +34,9 @@ namespace SmartSearchScreen
 
         public string GetLastImage()
         {
+
             LoadAllImages();
+
             foreach (var image in allImages)
             {
                 loadedImages.Add(image);
@@ -58,14 +60,24 @@ namespace SmartSearchScreen
 
             foreach (var imageFile in imagesToLoad)
             {
-                var image = new Image
+                using (var stream = new FileStream(imageFile, FileMode.Open, FileAccess.Read))
                 {
-                    Source = new BitmapImage(new Uri(imageFile)),
-                    Margin = new Thickness(5)
-                };
-                Grid.SetRow(image, row);
-                Grid.SetColumn(image, col);
-                imageGrid.Children.Add(image);
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = stream;
+                    bitmap.EndInit();
+                    bitmap.Freeze(); // BitmapImage를 고정하여 UI 스레드에서 안전하게 사용 가능
+
+                    var image = new Image
+                    {
+                        Source = bitmap,
+                        Margin = new Thickness(5)
+                    };
+                    Grid.SetRow(image, row);
+                    Grid.SetColumn(image, col);
+                    imageGrid.Children.Add(image);
+                }
 
                 col++;
                 if (col >= 3)
@@ -74,6 +86,18 @@ namespace SmartSearchScreen
                     row++;
                 }
             }
+        }
+
+        public void UnloadAllImages(Grid imageGrid)
+        {
+            // Clear the image grid
+            imageGrid.Children.Clear();
+
+            // Clear the loaded images list
+            loadedImages.Clear();
+
+            // Clear the all images list
+            allImages.Clear();
         }
     }
 }
