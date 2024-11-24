@@ -69,7 +69,7 @@ namespace SmartSearchScreen
                 {
                     _keyPressTimer.Start();
                 }
-                if (_keyPressCount >= RequiredKeyPressCount)
+                else if (_keyPressCount >= RequiredKeyPressCount)
                 {
                     _mainWindow.Capture();
                     _keyPressCount = 0;

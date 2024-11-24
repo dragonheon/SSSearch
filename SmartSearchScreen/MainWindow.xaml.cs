@@ -175,11 +175,22 @@ namespace SmartSearchScreen
             search_image = imageLoader.GetLastImage();
             myTabControl.SelectedIndex = 1;
             page.Visibility = Visibility.Hidden;
-            // 검색 이미지 설정
-            SearchedImage.Source = new BitmapImage(new Uri(search_image));
+
+            // 파일 스트림을 사용하여 BitmapImage 생성
+            using (var stream = new FileStream(search_image, FileMode.Open, FileAccess.Read))
+            {
+                var bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.StreamSource = stream;
+                bitmap.EndInit();
+                bitmap.Freeze(); // BitmapImage를 고정하여 UI 스레드에서 안전하게 사용 가능
+
+                // 검색 이미지 설정
+                SearchedImage.Source = bitmap;
+            }
 
             string resultText = await ImageSearch.AnalyzeImageAsync(search_image);
-
             SearchResults.Text = resultText;
         }
         // 번역 메서드
@@ -193,7 +204,21 @@ namespace SmartSearchScreen
                 // UI 업데이트 - 번역 진행 중 상태를 표시
                 myTabControl.SelectedIndex = 1; // 번역 화면으로 전환
                 page.Visibility = Visibility.Hidden;
-                SearchedImage.Source = new BitmapImage(new Uri(search_image)); // 이미지 표시
+
+                // 파일 스트림을 사용하여 BitmapImage 생성
+                using (var stream = new FileStream(search_image, FileMode.Open, FileAccess.Read))
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = stream;
+                    bitmap.EndInit();
+                    bitmap.Freeze(); // BitmapImage를 고정하여 UI 스레드에서 안전하게 사용 가능
+
+                    // 이미지 표시
+                    SearchedImage.Source = bitmap;
+                }
+
                 SearchResults.Text = "Translating image text...";
 
                 // 번역 대상 언어 설정 (예: 영어로 번역)
@@ -284,7 +309,16 @@ namespace SmartSearchScreen
             OnFixUI.DisableFixUI(this);
         }
 
-        private void BtnClose() => realclose();
+        private void BtnClose(object sender, RoutedEventArgs e)
+        {
+            // ImageLoader 인스턴스를 생성하고 이미지 그리드를 언로드합니다.
+            ImageLoader imageLoader = new ImageLoader(imagesFolderPath);
+            imageLoader.UnloadAllImages(ImageGrid);
+
+            // 창을 닫습니다.
+            this.Close();
+        }
+
         private async void DeleteImages(object sender, RoutedEventArgs e)
         {
             try
@@ -307,6 +341,7 @@ namespace SmartSearchScreen
                 imageLoader.UnloadAllImages(ImageGrid);
 
 
+                
                 var pngFiles = Directory.GetFiles(imagesFolderPath, "*.png");
                 foreach (var file in pngFiles)
                 {

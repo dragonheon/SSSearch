@@ -94,10 +94,10 @@
                 </TabItem>
                 <TabItem x:Name="Results" Visibility="Hidden">
                     <StackPanel>
-                        <Image Name="SearchedImage" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Height="200"/>
+                        <Image Name="SearchedImage" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Height="200"/>
                         <TextBlock Name="SearchResults" Text="검색결과.." 
-                           Foreground="LightGray" FontSize="12" HorizontalAlignment="Center" 
-                           Margin="0,10,0,0" TextAlignment="Center" TextWrapping="Wrap"/>
+                           Foreground="LightGray" FontSize="14" HorizontalAlignment="Center" 
+                           Margin="0,5,0,0" TextAlignment="Center" TextWrapping="Wrap"/>
                     </StackPanel>
                 </TabItem>
             </TabControl>
@@ -120,7 +120,7 @@
             <!-- 다음 페이지 버튼 -->
             <Button Grid.Column="2" Content="&gt;&gt;" FontSize="12" Foreground="LightGray" Background="Transparent" BorderBrush="Transparent" Click="NextPage_Click"/>
         </Grid>
-        <Button Content="Close" Width="100" Height="40" Background="#3A4D5D" Foreground="LightGray" BorderBrush="Transparent" Margin="0,610,0,0" Click="BtnClose" HorizontalAlignment="Center"/>
+        <Button Name="btnClose" Content="Close" Width="45" Background="#3A4D5D" Foreground="LightGray" BorderBrush="Transparent" Margin="345,629,0,10" Click="BtnClose" HorizontalAlignment="Left"/>
 
     </Grid>
 </Window>
