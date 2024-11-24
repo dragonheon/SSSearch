@@ -55,10 +55,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1B63D7E1F82E9750E756F6177BDFC3D5431ED084</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>F407ADC738A0E8B3A1AF80E52C18BAC38FCC4DD5</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>SmartSearchScreen_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>SmartSearchScreen_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -293,7 +293,7 @@
     <None Include="protos\google\type\postal_address.proto" />
     <None Include="protos\google\type\quaternion.proto" />
     <None Include="protos\google\type\timeofday.proto" />
-    <None Include="SmartSearchScreen_1_TemporaryKey.pfx" />
+    <None Include="SmartSearchScreen_2_TemporaryKey.pfx" />
     <None Include="SmartSearchScreen_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

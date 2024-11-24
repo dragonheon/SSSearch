@@ -16,16 +16,25 @@ namespace SmartSearchScreen
 
         public async Task<string> AnalyzeImageAsync(string imagePath)
         {
-            var client = ImageAnnotatorClient.Create();
-            var image = Image.FromFile(imagePath);
-            var response = await client.DetectLabelsAsync(image);
-
-            List<string> labels = new List<string>();
-            foreach (var label in response)
+            if (imagePath == null)
             {
-                labels.Add(label.Description);
+                return "No image found";
             }
-            return string.Join(", ", labels);
+            else
+            {
+
+                var client = ImageAnnotatorClient.Create();
+                var image = Image.FromFile(imagePath);
+                var response = await client.DetectLabelsAsync(image);
+
+                List<string> labels = new List<string>();
+                foreach (var label in response)
+                {
+                    labels.Add(label.Description);
+                }
+
+                return string.Join(", ", labels);
+            }
         }
     }
 }

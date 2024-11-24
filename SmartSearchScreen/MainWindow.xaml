@@ -120,5 +120,7 @@
             <!-- 다음 페이지 버튼 -->
             <Button Grid.Column="2" Content="&gt;&gt;" FontSize="12" Foreground="LightGray" Background="Transparent" BorderBrush="Transparent" Click="NextPage_Click"/>
         </Grid>
+        <Button Content="Close" Width="100" Height="40" Background="#3A4D5D" Foreground="LightGray" BorderBrush="Transparent" Margin="0,610,0,0" Click="BtnClose" HorizontalAlignment="Center"/>
+
     </Grid>
 </Window>

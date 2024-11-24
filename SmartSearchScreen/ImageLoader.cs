@@ -34,7 +34,9 @@ namespace SmartSearchScreen
 
         public string GetLastImage()
         {
+
             LoadAllImages();
+
             foreach (var image in allImages)
             {
                 loadedImages.Add(image);

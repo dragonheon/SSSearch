@@ -284,15 +284,28 @@ namespace SmartSearchScreen
             OnFixUI.DisableFixUI(this);
         }
 
+        private void BtnClose() => realclose();
         private async void DeleteImages(object sender, RoutedEventArgs e)
         {
             try
             {
                 // 타이머 일시 중지
                 imageUpdateTimer.Stop();
+                
 
                 // 모든 파일이 갱신될 때까지 대기
                 await Task.Run(() => imageLoader.LoadAllImages());
+
+                global::SmartSearchScreen.ImageSearch imageSearch = new global::SmartSearchScreen.ImageSearch();
+                var resultText = await imageSearch.AnalyzeImageAsync(imageLoader.GetLastImage());
+                if (resultText.Contains("No image found"))
+                {
+                    MessageBox.Show("No image found. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                //모든 Image폴더 내 파일 해제
+                imageLoader.UnloadAllImages(ImageGrid);
+
 
                 var pngFiles = Directory.GetFiles(imagesFolderPath, "*.png");
                 foreach (var file in pngFiles)
