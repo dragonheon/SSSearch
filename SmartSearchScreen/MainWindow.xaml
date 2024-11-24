@@ -18,7 +18,8 @@
                                 Click="BtnHistory"/>
 
                     <!-- 번역 버튼 -->
-                    <Button Content="Translate" Width="100" Height="40" Background="#3A4D5D" Foreground="LightGray" BorderBrush="Transparent" Margin="0,0,10,0"/>
+                    <Button Content="Translate" Width="100" Height="40" Background="#3A4D5D" Foreground="LightGray" BorderBrush="Transparent" Margin="0,0,10,0"
+                            Click="BtnTranslate"/>
 
                     <!-- 돋보기 버튼 -->
                     <Button Width="50" Height="50" Background="#3A4D5D" BorderBrush="Transparent" Margin="0,0,0,0"
