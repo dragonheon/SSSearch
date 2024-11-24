@@ -102,7 +102,16 @@ namespace SmartSearchScreen
 
         private void BtnSearch(object sender, RoutedEventArgs e)
         {
-            SearchImage();
+            
+            var region = OnFixUI.GetRegion();
+            if (region.HasValue && OnFixUI.IsFixUIEnabled())
+            {
+                CaptureRegion(region.Value);
+            }
+            else
+            {
+                SearchImage();
+            }
         }
 
         // 이전 페이지, 다음 페이지 버튼 클릭 이벤트 핸들러
@@ -176,6 +185,7 @@ namespace SmartSearchScreen
             {
                 var region = overlay.SelectedRegion;
                 CaptureRegion(region);
+                OnFixUI.HandleFixUI(this, region);
             }
         }
 
@@ -213,6 +223,16 @@ namespace SmartSearchScreen
             return 1.0;
         }
 
+        private void FixUI(object sender, RoutedEventArgs e)
+        {
+            OnFixUI.EnableFixUI(this);
+        }
+
+        private void nFixUI(object sender, RoutedEventArgs e)
+        {
+            OnFixUI.DisableFixUI(this);
+        }
+
         private async void DeleteImages(object sender, RoutedEventArgs e)
         {
             try
@@ -222,7 +242,7 @@ namespace SmartSearchScreen
 
                 // 모든 파일이 갱신될 때까지 대기
                 await Task.Run(() => imageLoader.LoadAllImages());
-                
+
                 var pngFiles = Directory.GetFiles(imagesFolderPath, "*.png");
                 foreach (var file in pngFiles)
                 {
