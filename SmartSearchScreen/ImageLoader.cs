@@ -75,5 +75,17 @@ namespace SmartSearchScreen
                 }
             }
         }
+
+        public void UnloadAllImages(Grid imageGrid)
+        {
+            // Clear the image grid
+            imageGrid.Children.Clear();
+
+            // Clear the loaded images list
+            loadedImages.Clear();
+
+            // Clear the all images list
+            allImages.Clear();
+        }
     }
 }
