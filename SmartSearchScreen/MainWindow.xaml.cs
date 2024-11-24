@@ -9,6 +9,8 @@ using System.Windows.Threading;
 using System.Runtime.InteropServices;
 using System.Windows.Controls;
 using SmartSearchScreen;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace SmartSearchScreen
 {
@@ -109,6 +111,22 @@ namespace SmartSearchScreen
         private void BtnTranslate(object sender, RoutedEventArgs e)
         {
             TranslateImage();
+        }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.Image image = sender as System.Windows.Controls.Image;
+
+            // 이미지의 Opacity 값을 변경하여 클릭 여부를 표시합니다.
+            if (image.Opacity == 1)
+            {
+                // 이미지가 아직 클릭되지 않은 상태라면 Opacity 값을 0.5로 변경합니다.
+                image.Opacity = 0.5;
+            }
+            else
+            {
+                // 이미지가 이미 클릭된 상태라면 Opacity 값을 1로 변경합니다.
+                image.Opacity = 1;
+            }
         }
         // 이전 페이지, 다음 페이지 버튼 클릭 이벤트 핸들러
         private void PreviousPage_Click(object sender, RoutedEventArgs e)
