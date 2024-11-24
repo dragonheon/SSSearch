@@ -4,16 +4,22 @@
 winexe
 C#
 .cs
-C:\SSSearch\SSSearch\SmartSearchScreen\obj\Debug\
+C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\
 SmartSearchScreen
 none
 false
 DEBUG;TRACE
-C:\SSSearch\SSSearch\SmartSearchScreen\App.xaml
+C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\App.xaml
 2-1416394097
+<<<<<<< HEAD
 4-650303670
 14930923024
 50292455309
+=======
+4-422001910
+151277114432
+47-1617796035
+>>>>>>> origin/AppData경로로변경
 MainWindow.xaml;Opening.xaml;
 
 False

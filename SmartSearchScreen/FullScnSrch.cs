@@ -20,7 +20,6 @@ namespace SmartSearchScreen
                     {
                         g.CopyFromScreen(bounds.Location, System.Drawing.Point.Empty, bounds.Size);
                     }
-
                     // 이미지 저장
                     ImageSave.SaveImage(screenshot, mw.imagesFolderPath, "screenshot");
                 }
