@@ -17,11 +17,14 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Security.Principal;
 using System.Security.AccessControl;
+using System.Net.Http;
 
 namespace SmartSearchScreen
 {
     public partial class MainWindow : Window
     {
+        private bool goLens = false;
+
         //로드할 이미지 페이지 수
         private const int ImagesPerPage = 9;
         private int currentPage = 1;
@@ -172,26 +175,34 @@ namespace SmartSearchScreen
         // 이미지 검색 메서드
         public async void SearchImage()
         {
-            search_image = imageLoader.GetLastImage();
-            myTabControl.SelectedIndex = 1;
-            page.Visibility = Visibility.Hidden;
-
-            // 파일 스트림을 사용하여 BitmapImage 생성
-            using (var stream = new FileStream(search_image, FileMode.Open, FileAccess.Read))
+            if (goLens)
             {
-                var bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                bitmap.StreamSource = stream;
-                bitmap.EndInit();
-                bitmap.Freeze(); // BitmapImage를 고정하여 UI 스레드에서 안전하게 사용 가능
-
-                // 검색 이미지 설정
-                SearchedImage.Source = bitmap;
+                BtnLens(null, null);
+                return;
             }
+            else
+            {
+                search_image = imageLoader.GetLastImage();
+                myTabControl.SelectedIndex = 1;
+                page.Visibility = Visibility.Hidden;
 
-            string resultText = await ImageSearch.AnalyzeImageAsync(search_image);
-            SearchResults.Text = resultText;
+                // 파일 스트림을 사용하여 BitmapImage 생성
+                using (var stream = new FileStream(search_image, FileMode.Open, FileAccess.Read))
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = stream;
+                    bitmap.EndInit();
+                    bitmap.Freeze(); // BitmapImage를 고정하여 UI 스레드에서 안전하게 사용 가능
+
+                    // 검색 이미지 설정
+                    SearchedImage.Source = bitmap;
+                }
+
+                string resultText = await ImageSearch.AnalyzeImageAsync(search_image);
+                SearchResults.Text = resultText;
+            }
         }
         // 번역 메서드
         public async void TranslateImage()
@@ -242,6 +253,65 @@ namespace SmartSearchScreen
             if (!Directory.Exists(imagesFolderPath))
             {
                 Directory.CreateDirectory(imagesFolderPath);
+            }
+        }
+
+
+        // 구글 렌즈 버튼 클릭 이벤트 핸들러
+        private async void BtnLens(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // 마지막으로 선택된 이미지 경로 가져오기
+                search_image = imageLoader.GetLastImage();
+
+                if (string.IsNullOrEmpty(search_image) || !File.Exists(search_image))
+                {
+                    MessageBox.Show("No image found to upload.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // 이미지를 Imgur에 업로드하고 URL 가져오기
+                string imageUrl = await UploadImageToImgur(search_image);
+
+                // 구글 렌즈 URL 생성
+                string googleLensUrl = "https://lens.google.com/uploadbyurl?url=" + Uri.EscapeDataString(imageUrl);
+
+                // 웹 브라우저로 구글 렌즈 URL 열기
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = googleLensUrl,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to open Google Lens: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        // 이미지를 Imgur에 업로드하는 메서드
+        private async Task<string> UploadImageToImgur(string imagePath)
+        {
+            string clientId = "e83eb7aa4b3a6a1"; 
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Client-ID", clientId);
+                using (var content = new MultipartFormDataContent())
+                {
+                    byte[] imageData = File.ReadAllBytes(imagePath);
+                    content.Add(new ByteArrayContent(imageData), "image", Path.GetFileName(imagePath));
+                    var response = await httpClient.PostAsync("https://api.imgur.com/3/image", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonResponse = await response.Content.ReadAsStringAsync();
+                        dynamic result = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonResponse);
+                        return result.data.link;
+                    }
+                    else
+                    {
+                        throw new Exception("Failed to upload image to Imgur.");
+                    }
+                }
             }
         }
 
@@ -297,6 +367,15 @@ namespace SmartSearchScreen
                 return dpiX / 96.0;
             }
             return 1.0;
+        }
+
+        private void GoLens(object sender, RoutedEventArgs e)
+        {
+            goLens = true;
+        }
+        private void nGoLens(object sender, RoutedEventArgs e)
+        {
+            goLens = false;
         }
 
         private void FixUI(object sender, RoutedEventArgs e)

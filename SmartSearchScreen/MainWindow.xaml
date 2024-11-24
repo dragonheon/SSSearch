@@ -35,6 +35,7 @@
                             </Canvas>
                         </Viewbox>
                     </Button>
+                    <Button Content="Lens" Width="50" Height="50" Foreground="LightGray" Background="#3A4D5D" Margin="6" BorderBrush="Transparent" Click="BtnLens"/>
                 </StackPanel>
             </StackPanel>
         </Border>
@@ -53,23 +54,26 @@
                 <RowDefinition Height="23"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="76*"/>
+                <ColumnDefinition Width="129*"/>
+                <ColumnDefinition Width="130*"/>
+                <ColumnDefinition Width="Auto" MinWidth="0"/>
             </Grid.ColumnDefinitions>
 
             <!-- 전체화면 검색 옵션 -->
-            <TextBlock Text="전체화면 검색" FontSize="12" Foreground="LightGray" Grid.Row="0" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2"/>
-            <TextBlock Text="Cntrl + F" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0" TextAlignment="Center"/>
+            <TextBlock Text="전체화면 검색" FontSize="12" Foreground="LightGray" Grid.Row="0" HorizontalAlignment="Center" Margin="0,4,0,20" Grid.RowSpan="2" Width="76"/>
+            <TextBlock Text="Cntrl + F" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0" TextAlignment="Center"/>
             <!-- 영역지정 검색 옵션 -->
-            <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,0,19" Grid.RowSpan="2"><Run Language="ko-kr" Text="프로그램 종료"/></TextBlock>
+            <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="1" HorizontalAlignment="Center" Margin="0,3,0,19" Grid.RowSpan="2" Width="76"><Run Language="ko-kr" Text="프로그램 종료"/></TextBlock>
             <TextBlock Text="Cntrl + Shift + F" Grid.Row ="1" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0" TextAlignment="Center"/>
             <!-- 프로그램 종료 옵션 -->
-            <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="2" HorizontalAlignment="Left" Margin="-2,3,0,21" Grid.RowSpan="2" Text="영역지정 검색"/>
+            <TextBlock FontSize="12" Foreground="LightGray" Grid.Row="2" HorizontalAlignment="Left" Margin="-2,3,0,21" Grid.RowSpan="2" Text="영역지정 검색" Width="76"/>
             <TextBlock Grid.Row="2" FontSize="12" Foreground="White" Background="#3A4D5D" Padding="5,2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Center" Grid.Column="1" Width="119" Margin="10,0,0,0" TextAlignment="Center"><Run Text="Cntrl + D"/><Run Text=" "/><Run Text="("/><Run Text="더블"/><Run Language="ko-kr" Text="클"/><Run Text="릭)"/></TextBlock>
 
             <!--UI고정-->
-            <CheckBox Name="chkFixUI" IsChecked="False" Checked="FixUI" Unchecked="nFixUI" Grid.Row="0" Grid.Column="2" Content="UI고정" FontSize="12" Foreground="LightGray" HorizontalAlignment="Center" Margin="10,4,0,19" Grid.RowSpan="2"/>
+            <CheckBox Name="chkFixUI" IsChecked="False" Checked="FixUI" Unchecked="nFixUI" Grid.Row="0" Grid.Column="2" Content="UI고정" FontSize="12" Foreground="LightGray" HorizontalAlignment="Left" Margin="9,5,0,18" Grid.RowSpan="2" Width="56" RenderTransformOrigin="0.223,0.552"/>
+            <!--UI고정-->
+            <CheckBox Name="chkGoLens" IsChecked="False" Checked="GoLens" Unchecked="nGoLens" Grid.Row="1" Grid.Column="2" Content="구글렌즈 바로가기" FontSize="12" Foreground="LightGray" HorizontalAlignment="Left" Margin="9,5,0,18" Grid.RowSpan="2" Width="120"/>
         </Grid>
 
         <!-- 결과 갤러리 -->
