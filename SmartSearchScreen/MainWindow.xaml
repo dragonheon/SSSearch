@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartSearchScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="400" Background="#1E2D3A">
+        Title="MainWindow" Height="700" Width="400" Background="#1E2D3A">
     <Grid>
         <!-- 상단 헤더 영역 -->
         <Border Background="#2A3A4A" Height="100" VerticalAlignment="Top">
@@ -69,21 +69,24 @@
         </Grid>
 
         <!-- 결과 갤러리 -->
-        <Border Background="#2A3A4A" Margin="10,230,10,60" CornerRadius="5">
+        <Border Background="#2A3A4A" Margin="10,230,10,60" CornerRadius="6">
             <TabControl Name ="myTabControl" Background="#2A3A4A" BorderBrush="#2A3A4A">
                 <TabItem x:Name="Images" Visibility="Hidden">
-                    <Grid x:Name="ImageGrid" Margin="10" HorizontalAlignment="Center" Visibility="Visible">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
+                    <StackPanel>
+                        <Button Content="이미지 일괄삭제" FontSize="12" Foreground= "LightGray" Background="Transparent"  Click="DeleteImages"/>
+                        <Grid x:Name="ImageGrid" Margin="10" HorizontalAlignment="Center" Visibility="Visible">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </StackPanel>
                 </TabItem>
                 <TabItem x:Name="Results" Visibility="Hidden">
                     <StackPanel>

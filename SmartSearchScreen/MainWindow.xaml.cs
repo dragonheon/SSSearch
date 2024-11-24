@@ -6,23 +6,27 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Management;
 using System.Windows.Controls;
 using SmartSearchScreen;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace SmartSearchScreen
 {
     public partial class MainWindow : Window
     {
-
         //로드할 이미지 페이지 수
         private const int ImagesPerPage = 9;
         private int currentPage = 1;
         private int totalPages;
 
         // 사용자의 문서 폴더 내에 이미지 저장 경로
-        public readonly string imagesFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), $"Images");//Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Images");
-
+        public readonly string imagesFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), $"Images");
 
         public static string search_image = "";
 
@@ -34,11 +38,8 @@ namespace SmartSearchScreen
 
         private CaptureSrch captureSrch;
 
-
         public MainWindow()
         {
-
-
             // XAML 파일을 초기화하는 함수
             InitializeComponent();
             CreateImagesFolder();   // Images 폴더를 생성하는 메서드 호출
@@ -82,15 +83,14 @@ namespace SmartSearchScreen
         {
             e.Cancel = true; // 창 닫힘을 취소
             this.Hide(); // 창 숨기기
-
         }
+
         public void realclose()
         {
             // 핫키 등록 해제
             fullscnsrch?.Dispose();
             captureSrch?.Dispose();
             Application.Current.Shutdown();
-
         }
 
         // 검색 버튼 클릭 이벤트 핸들러
@@ -178,6 +178,7 @@ namespace SmartSearchScreen
                 CaptureRegion(region);
             }
         }
+
         private void CaptureRegion(Rect region)
         {
             // Get the DPI scale
@@ -200,6 +201,7 @@ namespace SmartSearchScreen
                 fullscnsrch.loadAndSearch();
             }
         }
+
         private double GetDpiScale()
         {
             var source = PresentationSource.FromVisual(this);
@@ -210,5 +212,140 @@ namespace SmartSearchScreen
             }
             return 1.0;
         }
+
+        private async void DeleteImages(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // 타이머 일시 중지
+                imageUpdateTimer.Stop();
+
+                // 모든 파일이 갱신될 때까지 대기
+                await Task.Run(() => imageLoader.LoadAllImages());
+                
+                var pngFiles = Directory.GetFiles(imagesFolderPath, "*.png");
+                foreach (var file in pngFiles)
+                {
+                    try
+                    {
+                        // 파일 속성을 읽기 전용에서 일반으로 변경
+                        File.SetAttributes(file, FileAttributes.Normal);
+                        // 파일 삭제
+                        File.Delete(file);
+                    }
+                    catch (UnauthorizedAccessException)
+                    {
+                        // 권한이 부족한 경우 권한 부여 후 삭제 시도
+                        GrantFileAccess(file);
+                        File.Delete(file);
+                    }
+                    catch (IOException)
+                    {
+                        // 파일이 사용 중인 경우
+                        var processes = GetProcessesUsingFile(file);
+                        if (processes.Any())
+                        {
+                            string processNames = string.Join(", ", processes.Select(p => p.ProcessName));
+                            MessageBox.Show($"File is in use by the following processes: {processNames}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        else
+                        {
+                            // 사용 중인 프로세스가 없는 경우 파일 삭제 시도
+                            try
+                            {
+                                File.Delete(file);
+                            }
+                            catch (IOException ex)
+                            {
+                                MessageBox.Show($"File is still in use and cannot be deleted: {file}. Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                // 권한이 부족한 경우 권한 부여 후 삭제 시도
+                                GrantFileAccess(file);
+                                File.Delete(file);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Failed to delete file: {file}. Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to delete file: {file}. Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                MessageBox.Show("All PNG files have been deleted.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to delete PNG files: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                // 타이머 다시 시작
+                imageUpdateTimer.Start();
+            }
+        }
+
+        private void GrantFileAccess(string filePath)
+        {
+            var fileInfo = new FileInfo(filePath);
+            var fileSecurity = fileInfo.GetAccessControl();
+            var everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+            fileSecurity.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.FullControl, AccessControlType.Allow));
+            fileInfo.SetAccessControl(fileSecurity);
+        }
+
+        private List<Process> GetProcessesUsingFile(string filePath)
+        {
+            var processes = new List<Process>();
+            var fileHandle = CreateFile(filePath, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete, IntPtr.Zero, FileMode.Open, FileAttributes.Normal, IntPtr.Zero);
+
+            if (fileHandle == IntPtr.Zero)
+            {
+                return processes;
+            }
+
+            try
+            {
+                foreach (var process in Process.GetProcesses())
+                {
+                    foreach (ProcessModule module in process.Modules)
+                    {
+                        if (module.FileName.Equals(filePath, StringComparison.OrdinalIgnoreCase))
+                        {
+                            processes.Add(process);
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // 무시
+            }
+            finally
+            {
+                CloseHandle(fileHandle);
+            }
+
+            return processes;
+        }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern IntPtr CreateFile(
+            string lpFileName,
+            [MarshalAs(UnmanagedType.U4)] FileAccess dwDesiredAccess,
+            [MarshalAs(UnmanagedType.U4)] FileShare dwShareMode,
+            IntPtr lpSecurityAttributes,
+            [MarshalAs(UnmanagedType.U4)] FileMode dwCreationDisposition,
+            [MarshalAs(UnmanagedType.U4)] FileAttributes dwFlagsAndAttributes,
+            IntPtr hTemplateFile);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool CloseHandle(IntPtr hObject);
     }
 }

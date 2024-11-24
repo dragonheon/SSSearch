@@ -186,3 +186,7 @@ C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\SmartS
 C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\SmartSea.20D86F7C.Up2Date
 C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\SmartSearchScreen.exe
 C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\SmartSearchScreen.pdb
+C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\bin\Debug\SmartSearchScreen.exe.manifest
+C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\bin\Debug\SmartSearchScreen.application
+C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\SmartSearchScreen.exe.manifest
+C:\Users\김용헌\Documents\git\SmartSSearch\SmartSearchScreen\obj\Debug\SmartSearchScreen.application
