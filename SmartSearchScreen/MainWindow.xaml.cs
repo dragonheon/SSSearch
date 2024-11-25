@@ -396,9 +396,7 @@ namespace SmartSearchScreen
             // ImageLoader 인스턴스를 생성하고 이미지 그리드를 언로드합니다.
             ImageLoader imageLoader = new ImageLoader(imagesFolderPath);
             imageLoader.UnloadAllImages(ImageGrid);
-
-            // 창을 닫습니다.
-            this.Close();
+            realclose();
         }
 
         private async void DeleteImages(object sender, RoutedEventArgs e)
