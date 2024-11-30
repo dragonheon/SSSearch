@@ -55,7 +55,10 @@ namespace SmartSearchScreen
         public void LoadImagesByPage(Grid imageGrid, int pageNumber, int imagesPerPage)
         {
             imageGrid.Children.Clear();
-            var imagesToLoad = allImages.Skip((pageNumber - 1) * imagesPerPage).Take(imagesPerPage).ToList();
+            var imagesToLoad = allImages.OrderByDescending(f => File.GetCreationTime(f))
+                                        .Skip((pageNumber - 1) * imagesPerPage)
+                                        .Take(imagesPerPage)
+                                        .ToList();
             int row = 0, col = 0;
 
             foreach (var imageFile in imagesToLoad)
