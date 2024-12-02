@@ -204,7 +204,7 @@ namespace SmartSearchScreen
             try
             {
                 // 마지막으로 선택된 이미지 경로 가져오기
-                search_image = imageLoader.GetLastImage();
+                string search_image = imageLoader.GetLastImage();
 
                 // UI 업데이트 - 번역 진행 중 상태를 표시
                 myTabControl.SelectedIndex = 1; // 번역 화면으로 전환
@@ -226,11 +226,11 @@ namespace SmartSearchScreen
 
                 SearchResults.Text = "번역 진행 중";
 
-                // 번역 대상 언어 설정 (예: 영어로 번역)
+                // 번역 대상 언어 설정 (예: 한국어로 번역)
                 string targetLanguage = "ko";
 
                 // Translation 클래스의 텍스트 추출 및 번역 메서드 호출
-                string translatedText = await translation.ExtractTextAndTranslateAsync(search_image, targetLanguage);
+                string translatedText = await translation.TranslateTextFromImageAsync(search_image, targetLanguage);
 
                 // UI 고정이 체크되어 있는지 확인
                 if (OnFixUI.IsFixUIEnabled())
@@ -265,6 +265,7 @@ namespace SmartSearchScreen
                 MessageBox.Show($"Error: {ex.Message}", "Translation Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         // 문서 디렉토리에 Images 폴더가 없으면 생성하는 메서드
         private void CreateImagesFolder()
         {
@@ -414,9 +415,7 @@ namespace SmartSearchScreen
             // ImageLoader 인스턴스를 생성하고 이미지 그리드를 언로드합니다.
             ImageLoader imageLoader = new ImageLoader(imagesFolderPath);
             imageLoader.UnloadAllImages(ImageGrid);
-
-            // 창을 닫습니다.
-            this.Close();
+            realclose();
         }
 
         private async void DeleteImages(object sender, RoutedEventArgs e)
