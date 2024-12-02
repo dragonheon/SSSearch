@@ -24,6 +24,8 @@ namespace SmartSearchScreen
     public partial class MainWindow : Window
     {
         private bool goLens = false;
+        private Rect? lastCapturedRegion = null; // 캡쳐한 영역의 위치를 저장할 필드
+
 
         //로드할 이미지 페이지 수
         private const int ImagesPerPage = 9;
@@ -51,6 +53,7 @@ namespace SmartSearchScreen
             InitializeComponent();
             CreateImagesFolder();   // Images 폴더를 생성하는 메서드 호출
 
+
             // ImageLoader 인스턴스 생성
             imageLoader = new ImageLoader(imagesFolderPath);
             totalPages = imageLoader.GetTotalPages(ImagesPerPage);
@@ -70,6 +73,8 @@ namespace SmartSearchScreen
             imageUpdateTimer.Start();  // 타이머 시작
 
             captureSrch = new CaptureSrch(this); // CaptureSrch 초기화
+
+
         }
 
         private void OnWindowLoaded(object sender, RoutedEventArgs e)
@@ -114,6 +119,7 @@ namespace SmartSearchScreen
             if (region.HasValue && OnFixUI.IsFixUIEnabled())
             {
                 CaptureRegion(region.Value);
+
             }
             else
             {
@@ -123,24 +129,9 @@ namespace SmartSearchScreen
 
         public void BtnTranslate(object sender, RoutedEventArgs e)
         {
+            this.Topmost = false;
             SearchImage();
             TranslateImage();
-        }
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            System.Windows.Controls.Image image = sender as System.Windows.Controls.Image;
-
-            // 이미지의 Opacity 값을 변경하여 클릭 여부를 표시합니다.
-            if (image.Opacity == 1)
-            {
-                // 이미지가 아직 클릭되지 않은 상태라면 Opacity 값을 0.5로 변경합니다.
-                image.Opacity = 0.5;
-            }
-            else
-            {
-                // 이미지가 이미 클릭된 상태라면 Opacity 값을 1로 변경합니다.
-                image.Opacity = 1;
-            }
         }
         // 이전 페이지, 다음 페이지 버튼 클릭 이벤트 핸들러
         private void PreviousPage_Click(object sender, RoutedEventArgs e)
@@ -241,8 +232,32 @@ namespace SmartSearchScreen
                 // Translation 클래스의 텍스트 추출 및 번역 메서드 호출
                 string translatedText = await translation.ExtractTextAndTranslateAsync(search_image, targetLanguage);
 
-                // 번역 결과를 UI에 업데이트
-                SearchResults.Text = translatedText;
+                // UI 고정이 체크되어 있는지 확인
+                if (OnFixUI.IsFixUIEnabled())
+                {
+                    // 새로운 창에 번역 결과를 표시
+                    var translationResultWindow = new TranslationResultWindow(translatedText);
+
+                    // 캡쳐한 영역의 위치가 있는 경우 창의 위치를 설정
+                    if (lastCapturedRegion.HasValue)
+                    {
+                        var region = lastCapturedRegion.Value;
+                        var dpiScale = GetDpiScale();
+                        translationResultWindow.Left = region.X * dpiScale;
+                        translationResultWindow.Top = (region.Y + region.Height) * dpiScale;
+                    }
+
+                    // MainWindow가 맨 위로 올라오지 않도록 Topmost 속성을 일시적으로 변경
+                    bool wasTopmost = this.Topmost;
+                    this.Topmost = false;
+                    translationResultWindow.Show();
+                    translationResultWindow.Closed += (s, e) => this.Topmost = wasTopmost;
+                }
+                else
+                {
+                    // 번역 결과를 UI에 업데이트
+                    SearchResults.Text = translatedText;
+                }
             }
             catch (Exception ex)
             {
@@ -355,10 +370,13 @@ namespace SmartSearchScreen
                 {
                     graphics.CopyFromScreen(screenLeft, screenTop, 0, 0, new System.Drawing.Size(screenWidth, screenHeight));
                 }
-                // 캡처 이미지 저장 후 검색
+                // 캡쳐 이미지 저장 후 검색
                 ImageSave.SaveImage(bitmap, imagesFolderPath, "capture");
                 fullscnsrch.loadAndSearch();
             }
+
+            // 캡쳐한 영역의 위치를 저장
+            lastCapturedRegion = region;
         }
 
         private double GetDpiScale()

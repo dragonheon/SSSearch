@@ -195,6 +195,9 @@
     <Compile Include="ImageHelper.cs" />
     <Compile Include="onFixUI.cs" />
     <Compile Include="Translation.cs" />
+    <Compile Include="TranslationResultWindow.xaml.cs">
+      <DependentUpon>TranslationResultWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -215,6 +218,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Opening.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TranslationResultWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
